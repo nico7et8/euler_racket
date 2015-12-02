@@ -9,7 +9,7 @@
 (define (divisors n)
   (let: loop ([divs : (Listof Flonum) '()]
              [candidate : Flonum 1.0])
-    (if (> candidate (/ n 2))
+    (if (> candidate (/ n 2.0))
       divs
       (if (divide? n candidate)
         (loop (cons candidate divs) (+ 1.0 candidate))
