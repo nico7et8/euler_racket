@@ -3,7 +3,7 @@
 (: divide? (-> Flonum Flonum Boolean))
 (define (divide? x y)
    (let ([r (/ x y)])
-     (< (- r (floor r)) 1e-6)))
+     (< (abs (- r (floor r))) 1e-6)))
 
 (: divisors (-> Flonum (Listof Flonum)))
 (define (divisors n)
