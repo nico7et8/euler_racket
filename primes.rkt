@@ -7,14 +7,14 @@
 (define primes
   (stream-cons
     2
-    (let loop ([candidate 3])
-      (define limit (integer-sqrt candidate))
+    (let loop ([divisor? 3])
+      (define limit (integer-sqrt divisor?))
       (if
         (for/or ([p (in-stream primes)]
                  #:break (> p limit))
-          (zero? (remainder candidate p)))
-        (loop (+ 2 candidate))
-        (stream-cons candidate (loop (+ 2 candidate)))))))
+          (zero? (remainder divisor? p)))
+        (loop (+ 2 divisor?))
+        (stream-cons divisor? (loop (+ 2 divisor?)))))))
 
 (define (prime? n)
   (and
